@@ -4,50 +4,69 @@ This project provides runnable code examples and visual flowcharts for ten diffe
 
 ---
 
-## Required API Keys and Environment Setup
+## 🌐 Live Web Demo
 
-To run either the command-line scripts or the Web application, you will need a Groq API key to handle LLM generations.
-
-### Required Key
-- **GROQ_API_KEY**: Needed for LLM inference (e.g. `openai/gpt-oss-20b` or `openai/gpt-oss-120b`).
-  - You can sign up for a free key at https://console.groq.com/keys
-  - Create a `.env` file in the project folder (or edit the included `.env` file):
-    ```env
-    GROQ_API_KEY=gsk_your_groq_api_key_here
-    GROQ_MODEL=openai/gpt-oss-20b
-    ```
-
-### Local Dependencies (No API Keys Required)
-- **Embeddings**: Uses `sentence-transformers/all-MiniLM-L6-v2` running locally on your machine via Hugging Face (`langchain-huggingface`).
-- **Vector Database**: Uses ChromaDB running in-memory (`chromadb`).
-- **Knowledge Graph**: Uses NetworkX directed graphs in-memory (`networkx`).
+- **Frontend Application**: [https://rag-architectures.vercel.app/](https://rag-architectures.vercel.app/)
+- **Backend REST API**: [https://rag-architectures-backend-laa9.onrender.com/api/health](https://rag-architectures-backend-laa9.onrender.com/api/health)
+- **GitHub Repository**: [https://github.com/mohitraj3697/rag_architectures](https://github.com/mohitraj3697/rag_architectures)
 
 ---
 
-## Quickstart: Web Application (FastAPI + React)
+## 🚀 How to Clone and Run on Localhost
 
-Launch the web app to test each architecture interactively:
-
+### 1. Clone the Repository
 ```bash
-# 1. Install Python dependencies
-pip install -r requirements.txt
-
-# 2. Start the FastAPI backend server (Terminal 1)
-python server.py
-
-# 3. Start the React frontend dev server (Terminal 2)
-cd frontend
-npm install
-npm run dev
+git clone https://github.com/mohitraj3697/rag_architectures.git
+cd rag_architectures
 ```
 
-Open **http://localhost:5173** in your browser.
+### 2. Set Up Environment Variables
+Create a `.env` file in the root folder (or copy `.env.example`):
+```bash
+cp .env.example .env
+```
+Open `.env` and add your Groq API key (get a free key at [console.groq.com/keys](https://console.groq.com/keys)):
+```env
+GROQ_API_KEY=gsk_your_groq_api_key_here
+GROQ_MODEL=openai/gpt-oss-20b
+```
 
-### Web Application Features:
+### 3. Start the FastAPI Backend Server
+In your first terminal window, install Python dependencies and run the server:
+```bash
+# Install Python packages
+pip install -r requirements.txt
+
+# Start the FastAPI server on port 8000
+python server.py
+```
+*(The backend will run on **http://localhost:8000**)*
+
+### 4. Start the React Frontend Application
+In a second terminal window, navigate to the `frontend` folder, install npm packages, and start Vite:
+```bash
+# Navigate to frontend
+cd frontend
+
+# Install Node dependencies
+npm install
+
+# Start Vite dev server
+npm run dev
+```
+*(The frontend will run on **http://localhost:5173**)*
+
+### 5. Access in Browser
+Open **http://localhost:5173** in your browser to interact with all 10 RAG architectures!
+
+---
+
+## Web Application Features:
 - **Sidebar Controls**: Choose from available Groq models (`gpt-oss-20b`, `gpt-oss-120b`, `llama-3.3-70b`), pick an architecture to test, and upload custom documents.
 - **Live Playground**: Run queries, view execution traces, inspect retrieved source chunks, and measure response times.
 - **Diagram Viewer**: Render native Mermaid.js flowcharts for each architecture type.
 - **Comparison Table**: Compare all ten patterns side by side to understand trade-offs.
+
 
 
 ---
