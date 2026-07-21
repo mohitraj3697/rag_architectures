@@ -5,7 +5,7 @@ import Playground from './components/Playground'
 import DiagramView from './components/DiagramView'
 import ComparisonMatrix from './components/ComparisonMatrix'
 
-const API_BASE = 'http://localhost:8000'
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 function App() {
   const [architectures, setArchitectures] = useState({})
